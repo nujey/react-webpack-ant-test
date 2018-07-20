@@ -3,6 +3,11 @@ import logo from './assets/images/logo.svg';
 import './assets/css/App.css';
 
 class App extends Component {
+  async componentDidMount() {
+    let data = await (await fetch('https://www.baidu.com/search/error.html?a=1&b=2', {
+      method: 'GET'
+    }))
+  }
   render() {
     return (
       <div className="App">
