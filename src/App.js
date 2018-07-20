@@ -4,9 +4,17 @@ import './assets/css/App.css';
 
 class App extends Component {
   async componentDidMount() {
-    let data = await (await fetch('https://www.baidu.com/search/error.html?a=1&b=2', {
-      method: 'GET'
-    }))
+    await fetch('https://dev.gogen.cn/user/doLogin', {
+      method: 'post',
+      headers: new Headers({
+        'Accept': 'application/json'
+      }),
+      body: new FormData().append('loginId', '18257507908')
+    }).then((res) => {
+      return res.json()
+    }).then((res) => {
+      console.log(res)
+    })
   }
   render() {
     return (
