@@ -31,9 +31,7 @@
     let reader = new FileReader()
     reader.readAsDataURL(imageFile.files[0])
     reader.onload = function() {
-      console.log(this.result, 777777)
       getBase64(this.result, (res) => {
-        console.log(res, 55555)
       })
     }
   })
