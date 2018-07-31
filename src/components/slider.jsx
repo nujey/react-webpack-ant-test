@@ -1,9 +1,13 @@
 import React from 'react'
+import { Button } from 'antd'
 
 class slider extends React.Component {
   render() {
     return (
-      <div>我就是想测试一下github的时间机制</div>
+      <div>
+        <Button type="primary">Primary</Button>
+        <Button type="danger">danger</Button>
+      </div>
     )
   }
 }
