@@ -17,7 +17,13 @@ class slider extends React.Component {
           <Button  ghost>小</Button>
           <Button  ghost>r</Button>
         </ButtonGroup>
-
+        <div className="grid-box">
+          <span>111</span>
+          <span>222</span>
+          <span>333</span>
+          <span>444</span>
+        </div>
+        <span>跟随在grid后面的元素</span>
       </div>
     )
   }
