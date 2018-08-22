@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './assets/images/logo.svg';
 import './assets/css/App.css';
 
-import Slider from "../src/components/slider";
+import Slider from "./components/slider/slider";
 
 class App extends Component {
   async componentDidMount() {
