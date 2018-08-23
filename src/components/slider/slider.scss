@@ -1,9 +1,12 @@
 .slider {
   width: 260px;
-  height: 100%;
+  height: calc(100% - 80px);
   text-align: left;
 }
 .topper-button {
+  line-height: 52px;
+  // transition: all .12s ease;
+  transition:  width .2s;
   background: #001529;
 }
 .menu-ul {

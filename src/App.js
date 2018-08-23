@@ -25,6 +25,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
         </header>
         <Slider />
+        <div style={{flex: 1}}>1111</div>
       </div>
     );
   }
