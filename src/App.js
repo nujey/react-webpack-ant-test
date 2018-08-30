@@ -1,23 +1,24 @@
 import React, { Component } from 'react';
+import {Route, Switch } from 'react-router-dom';
 import logo from './assets/images/logo.svg';
 import './assets/css/App.css';
-
+import RouteConfig from './router';
 import Slider from "./components/slider/slider";
 
 class App extends Component {
-  async componentDidMount() {
-    await fetch('https://dev.gogen.cn/user/doLogin', {
-      method: 'post',
-      headers: new Headers({
-        'Accept': 'application/json'
-      }),
-      body: new FormData().append('loginId', '18257507908')
-    }).then((res) => {
-      return res.json()
-    }).then((res) => {
-      console.log(res)
-    })
-  }
+  // async componentDidMount() {
+  //   await fetch('https://dev.gogen.cn/user/doLogin', {
+  //     method: 'post',
+  //     headers: new Headers({
+  //       'Accept': 'application/json'
+  //     }),
+  //     body: new FormData().append('loginId', '18257507908')
+  //   }).then((res) => {
+  //     return res.json()
+  //   }).then((res) => {
+  //     console.log(res)
+  //   })
+  // }
   render() {
     return (
       <div className="App">
@@ -25,6 +26,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
         </header>
         <Slider />
+        <RouteConfig />
         <div style={{flex: 1}}>1111</div>
       </div>
     );
