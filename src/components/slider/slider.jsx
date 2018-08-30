@@ -1,6 +1,7 @@
 import React from 'react'
 import { Menu, Icon, Button } from 'antd'
 import './slider.scss'
+import { sliderName } from './menu.js'
 
 const SubMenu = Menu.SubMenu
 const MenuItemGroup = Menu.ItemGroup
@@ -10,8 +11,6 @@ class Sider extends React.Component {
     collapsed: true
   }
   handleClick = (e) => {
-    // e.preventDefault()
-    console.log(e, 111)
     if (e.key !== null) {
       this.setState({
         collapsed: false
@@ -22,6 +21,15 @@ class Sider extends React.Component {
     this.setState({
       collapsed: !this.state.collapsed
     })
+  }
+  /**
+   * 当组件挂载的时候
+   */
+  componentDidMount() {
+    console.log(sliderName)
+  }
+  componentWillUnmount() {
+    console.log(222)
   }
   render() {
     return (
@@ -36,8 +44,7 @@ class Sider extends React.Component {
           theme={this.state.collapsed ? 'dark' : 'dark'}
           mode="inline"
           onClick={this.handleClick}
-          inlineCollapsed={!this.state.collapsed}
-        >
+          inlineCollapsed={!this.state.collapsed}>
           <Menu.Item key="home" title="index">
             <Icon type="pie-chart" spin="true"/>
             <span>首页</span>
@@ -52,14 +59,6 @@ class Sider extends React.Component {
             <Menu.Item key="sub2-item3" title="二--子菜单3">个人博客</Menu.Item>
             <Menu.Item key="sub2-item4" title="二--子菜单4">毕业设计</Menu.Item>
           </SubMenu>
-            {/* <MenuItemGroup key="sub1-group1">
-              <Menu.Item key="group-item1">公司账号</Menu.Item>
-              <Menu.Item key="group-item2">个人账号</Menu.Item>
-            </MenuItemGroup> */}
-            {/* <MenuItemGroup key="sub2-group2" title="第一组子菜单2">
-              <Menu.Item key="group-item3">子菜单 3</Menu.Item>
-              <Menu.Item key="group-item4">子菜单 4</Menu.Item>
-            </MenuItemGroup> */}
         </Menu>
       </div>
     )
