@@ -1,5 +1,6 @@
 import React from 'react'
 import { Menu, Icon, Button } from 'antd'
+import { Link } from "react-router-dom"
 import './slider.scss'
 import { sliderName } from './menu.js'
 
@@ -47,6 +48,7 @@ class Sider extends React.Component {
           inlineCollapsed={!this.state.collapsed}>
           <Menu.Item key="home" title="index">
             <Icon type="pie-chart" spin="true"/>
+            {/* <Link to="/user" /> */}
             <span>首页</span>
           </Menu.Item>
           <SubMenu key="sub1" title={<span><Icon type="user" /><span>账号中心</span></span>}>

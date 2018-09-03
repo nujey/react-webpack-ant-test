@@ -7,9 +7,9 @@ import registerServiceWorker from './registerServiceWorker';
 
 const render = Component => {
   ReactDOM.render(
-    <Provider>
+    // <Provider>
       <Component />
-    </Provider>
+    // </Provider>
     , document.getElementById('root'))
 }
 render(App)
