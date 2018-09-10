@@ -9,7 +9,7 @@ class RouteConfig extends React.Component{
     return (
       <Switch>
         <Route path="/" exact component={home} />
-        <Route path="/user" component={User} />
+        <Route path="/user/:id" component={User} />
       </Switch>
     )
   }

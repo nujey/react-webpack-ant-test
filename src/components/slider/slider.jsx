@@ -51,7 +51,9 @@ class Sider extends React.Component {
             <Link to="/user"><span>首页</span></Link>
           </Menu.Item>
           <SubMenu key="sub1" title={<span><Icon type="user" /><span>账号中心</span></span>}>
-            <Menu.Item key="item1">公司账号</Menu.Item>
+            <Menu.Item key="item1">
+            <Link to="/user/2"><span>学生</span></Link>
+            </Menu.Item>
             <Menu.Item key="item2">个人账号</Menu.Item>
           </SubMenu>
           <SubMenu key="sub2" title={<span><Icon type="appstore" /><span>商务案例</span></span>}>
