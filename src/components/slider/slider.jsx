@@ -2,7 +2,7 @@ import React from 'react'
 import { Menu, Icon, Button } from 'antd'
 import { Link } from "react-router-dom"
 import './slider.scss'
-import { sliderName } from './menu.js'
+import { menus } from './menu.js'
 
 const SubMenu = Menu.SubMenu
 const MenuItemGroup = Menu.ItemGroup
@@ -27,10 +27,29 @@ class Sider extends React.Component {
    * 当组件挂载的时候
    */
   componentDidMount() {
-    console.log(sliderName)
+    console.log(menus)
   }
   componentWillUnmount() {
     console.log(222)
+  }
+  childrenItem(children = []) {
+    return children.map((x, index) => {
+      return  <Menu.Item key={x.code} title={x.label}>
+                <Link to={x.path.startsWith('/user') ? `/user/${index}` : x.path}><span>{x.label}</span></Link>
+              </Menu.Item>
+    })
+  }
+  sliderList(list = []) {
+    return list.map((x) => {
+      const { path: route, code: key, icon, children, label } = x
+      const hasChild = <SubMenu key={x.code} title={<span><Icon type={icon}/><span>{label}</span></span>}>
+                        {this.childrenItem(children)}
+                      </SubMenu>
+      const hasNoChild =  <Menu.Item key={key} title="index">
+                            <Link to={route} ><Icon type={icon}/><span>{label}</span></Link>
+                          </Menu.Item>
+      return  children.length === 0  ?  hasNoChild  :  hasChild       
+    })
   }
   render() {
     return (
@@ -46,22 +65,7 @@ class Sider extends React.Component {
           mode="inline"
           onClick={this.handleClick}
           inlineCollapsed={!this.state.collapsed}>
-          <Menu.Item key="home" title="index">
-            <Icon type="pie-chart" spin="true"/>
-            <Link to="/user"><span>首页</span></Link>
-          </Menu.Item>
-          <SubMenu key="sub1" title={<span><Icon type="user" /><span>账号中心</span></span>}>
-            <Menu.Item key="item1">
-            <Link to="/user/2"><span>学生</span></Link>
-            </Menu.Item>
-            <Menu.Item key="item2">个人账号</Menu.Item>
-          </SubMenu>
-          <SubMenu key="sub2" title={<span><Icon type="appstore" /><span>商务案例</span></span>}>
-            <Menu.Item key="sub2-item1" title="二--子菜单1">初创公司</Menu.Item>
-            <Menu.Item key="sub2-item2" title="二--子菜单2">精品小店</Menu.Item>
-            <Menu.Item key="sub2-item3" title="二--子菜单3">个人博客</Menu.Item>
-            <Menu.Item key="sub2-item4" title="二--子菜单4">毕业设计</Menu.Item>
-          </SubMenu>
+          {this.sliderList(menus)}
         </Menu>
       </div>
     )

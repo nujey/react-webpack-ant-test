@@ -1,8 +1,50 @@
 "use strict";
 exports.__esModule = true;
-exports.menus = [{
-        name: '111'
-    }];
+
 exports.sliderName = {
     sliderName: '侧边框'
 };
+
+exports.menus = [{
+    label: '首页',
+    icon: 'pie-chart',
+    path: '/home',
+    code: 'home',
+    children: []
+}, {
+    label: '账号中心',
+    icon: 'user',
+    path: '/user',
+    code: 'user',
+    children: [{
+        label: '学生账号',
+        path: '/user/:id',
+        code: 'user-item1'
+    }, {
+        label: '账号首页',
+        path: '/home',
+        code: 'user-item2'
+    }]
+}, {
+    label: '商务案例',
+    icon: 'appstore',
+    path: '/home',
+    code: 'demo',
+    children: [{
+        label: '个人博客',
+        path: '/user/:id',
+        code: 'demo-item1'
+    }, {
+        label: '初创公司',
+        path: '/user/:id',
+        code: 'demo-item2'
+    }, {
+        label: '精品小店',
+        path: '/user/:id',
+        code: 'demo-item3'
+    }, {
+        label: '毕业设计',
+        path: '/user/:id',
+        code: 'demo-item4'
+    }]
+}]
