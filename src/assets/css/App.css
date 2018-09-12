@@ -29,6 +29,17 @@
   font-size: large;
 }
 
+.main_content {
+  display: flex;
+  width: 100%;
+  height: calc(100% - 80px);
+}
+
+.main_page {
+  flex: 1;
+}
+
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
