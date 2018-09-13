@@ -12,8 +12,10 @@ class App extends Component {
           <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
           </header>
-          <Slider />
-          <RouteConfig />
+          <div className="main_content">
+            <Slider />
+            <div className="main_page"><RouteConfig /></div>
+          </div> 
       </div>
     );
   }

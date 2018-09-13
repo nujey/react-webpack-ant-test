@@ -4,6 +4,21 @@ import { Switch, Route } from 'react-router-dom'
 const student = (props) => {
   console.log(props)
   const studentId = parseInt(props.match.params.id, 10)
+
+  const filterApi = {
+    students: [
+      {id: 1, name: '1名'},
+      {id: 2, name: '2名'}
+    ],
+    all() {
+      return this.students
+    },
+    get(id) {
+      const item = e => e.id === id
+      return this.students.find(item)
+    }
+  }
+
   return (
     <div>
       <h3>学生{studentId}</h3>
