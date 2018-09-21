@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
 
 import home from '../views/home/home.jsx'
 import User from '../views/userCenter/user.jsx'
