@@ -47,4 +47,10 @@ exports.menus = [{
         path: '/user/:id',
         code: 'demo-item4'
     }]
+}, {
+    label: '测试页面',
+    icon: 'inbox',
+    path: "/test-ui",
+    code: "test-ui",
+    children: []
 }]
