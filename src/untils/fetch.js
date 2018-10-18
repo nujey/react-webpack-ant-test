@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { Toast } from 'mint-ui'
 
 const mobileService = axios.create({
   baseURL: process.env.BASE_API,
@@ -23,10 +22,10 @@ mobileService.interceptors.response.use(response => {
   if (!res.status) {
     switch(res.code) {
       case 102:
-        Toast(res.message)
+        alert(res.message)
         break;
       case 103:
-        Toast(res.message)
+        alert(res.message)
         break;
     }
     return Promise.reject(res)
