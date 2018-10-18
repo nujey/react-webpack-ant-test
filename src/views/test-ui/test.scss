@@ -1,0 +1,35 @@
+.row {
+  height: 30px;
+  line-height: 30px;
+  div  {
+    text-align: center;
+    color: #fff;
+  }
+  .ant-col-12 {
+    background: rgba($color: #38adff, $alpha: 1.0)
+  }
+  .ant-col-1 {
+    background: rgba($color: #38adff, $alpha: 0.9)
+  }
+  .ant-col-2 {
+    background: rgba($color: #38adff, $alpha: .8)
+  }
+  .ant-col-3 {
+    background: rgba($color: #38adff, $alpha: 0.7)
+  }
+  .ant-col-4 {
+    background: rgba($color: #38adff, $alpha: 0.6)
+  }
+  .ant-col-5 {
+    background: rgba($color: #38adff, $alpha: .5)
+  }
+  .ant-col-6 {
+    background: rgba($color: #38adff, $alpha: .7)
+  }
+  .ant-col-7 {
+    background: rgba($color: #38adff, $alpha: .2)
+  }
+  .ant-col-8 {
+    background: rgba($color: #38adff, $alpha: .3)
+  }
+}
