@@ -1,12 +1,20 @@
 import React, { Component } from 'react'
-import { Row, Col } from 'antd'
+import { Row, Col, Affix, Button } from 'antd'
 import './test.scss'
 
 import {A} from './export'
 
 class TestUi extends Component {
+  state = {
+    top: 100
+  }
   componentDidMount() {
     console.log(A)
+  }
+  handleClick() {
+    this.setState({
+      top: this.state.top + 10
+    })
   }
   render() {
     return(
@@ -61,6 +69,10 @@ class TestUi extends Component {
           <Col xs={{ span: 11, offset: 1 }} lg={{ span: 6, offset: 2 }}>Col</Col>
           <Col xs={{ span: 5, offset: 1 }} lg={{ span: 6, offset: 2 }}>Col</Col>
         </Row>
+        <Affix offsetTop={this.state.top}>
+          <Button type="primary" onClick={this.handleClick}>test affix</Button>
+        </Affix>
+        <div style={{height: 1200 +'px'}}></div>
       </div>
     )
   }
