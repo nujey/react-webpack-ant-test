@@ -9,6 +9,7 @@ import  'echarts/lib/chart/bar';
 class Home extends React.Component{
   state = {
     series: [],
+    array: [5, 20, 30, 40, 15]
   }
   converData(data = []) {
     let res = []
@@ -49,25 +50,62 @@ class Home extends React.Component{
     this.setState({
       series: tempArr
     })
-    var myChart = echarts.init(document.getElementById('main'));
+    var firstBar = echarts.init(document.getElementById('first-bar'));
+    var secondBar = echarts.init(document.getElementById('second-bar'));
+    var thirdBar = echarts.init(document.getElementById('third-bar'));
+    let echartsArray = []
+    this.state.array.forEach(e => {
+      e = Math.random() * e
+      echartsArray.push(e)
+    })
     options.series = this.state.series
-    myChart.setOption({
+    firstBar.setOption({
       title: { text: 'ECharts 入门示例' },
       tooltip: {},
       xAxis: {
-        data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
+        data: ["萝莉", "少女", "御姐", "小姐姐", "口红", "围巾"]
       },
       yAxis: {},
       series: [{
         name: '销量',
         type: 'bar',
-        data: [5, 20, 36, 10, 10, 20]
+        data: echartsArray
+      }]
+    })
+    secondBar.setOption({
+      title: { text: 'ECharts 入门示例' },
+      tooltip: {},
+      xAxis: {
+        data: ["萝莉", "少女", "御姐", "小姐姐", "口红", "围巾"]
+      },
+      yAxis: {},
+      series: [{
+        name: '销量',
+        type: 'bar',
+        data: echartsArray
+      }]
+    })
+    thirdBar.setOption({
+      title: { text: 'ECharts 入门示例' },
+      tooltip: {},
+      xAxis: {
+        data: ["萝莉", "少女", "御姐", "小姐姐", "口红", "围巾"]
+      },
+      yAxis: {},
+      series: [{
+        name: '销量',
+        type: 'bar',
+        data: echartsArray
       }]
     })
   }
   render() {
     return (
-      <div className="echarts_main" id="main">111111</div>
+      <div className="echarts_main" id="main">
+        <div className="first-bar" id="first-bar"></div>
+        <div className="first-bar" id="second-bar"></div>
+        <div className="first-bar" id="third-bar"></div>
+      </div>
     )
   }
 }
