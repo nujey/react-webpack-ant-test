@@ -1,6 +1,29 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
+import { Table } from 'antd'
 
+const columns = [{
+  title: '姓名',
+  dataIndex: 'name'
+}, {
+  title: '年龄',
+  dataIndex: 'age'
+}, {
+  title: '公司',
+  dataIndex: 'company'
+}, {
+  title: '住址',
+  dataIndex: 'adress'
+}]
+const data = []
+for(let i = 0; i < 20; i++) {
+  data.push({
+    name: `张小鹿${i}`,
+    age: i,
+    adress: `张小鹿的帅气爸爸有${i}个家`,
+    company: '张小鹿的公司'
+  })
+}
 const student = (props) => {
   const studentId = parseInt(props.match.params.id, 10)
 
@@ -20,7 +43,7 @@ const student = (props) => {
 
   return (
     <div>
-      <h3>学生{studentId}</h3>
+      <Table columns={columns} dataSource={data}/>
     </div>
   )
 }
@@ -28,7 +51,6 @@ class Student extends React.Component {
   render() {
     return (
       <div>
-        <p>这是学生页面</p>
         <Switch>
           <Route exact path="/user/:id" component={student}></Route>
         </Switch>
