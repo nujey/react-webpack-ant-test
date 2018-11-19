@@ -60,7 +60,7 @@ class Home extends React.Component{
     })
     options.series = this.state.series
     firstBar.setOption({
-      title: { text: 'ECharts 入门示例' },
+      title: { text: '小姐姐访问' },
       tooltip: {},
       xAxis: {
         data: ["萝莉", "少女", "御姐", "小姐姐", "口红", "围巾"]
@@ -73,7 +73,7 @@ class Home extends React.Component{
       }]
     })
     secondBar.setOption({
-      title: { text: 'ECharts 入门示例' },
+      title: { text: '小姐姐PV统计' },
       tooltip: {},
       xAxis: {
         data: ["萝莉", "少女", "御姐", "小姐姐", "口红", "围巾"]
@@ -86,7 +86,7 @@ class Home extends React.Component{
       }]
     })
     thirdBar.setOption({
-      title: { text: 'ECharts 入门示例' },
+      title: { text: '小姐姐UV统计' },
       tooltip: {},
       xAxis: {
         data: ["萝莉", "少女", "御姐", "小姐姐", "口红", "围巾"]

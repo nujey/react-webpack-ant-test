@@ -2,7 +2,6 @@ import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 
 const student = (props) => {
-  console.log(props)
   const studentId = parseInt(props.match.params.id, 10)
 
   const filterApi = {
