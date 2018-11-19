@@ -1,0 +1,25 @@
+.topper {
+  width: 100%;
+  min-height: 80px;
+  display: grid;
+  padding: 12px;
+  grid-template-columns: 140px 140px 300px 200px 180px auto;
+  grid-template-rows: 40px;
+  // display: flex;
+  background: #000;
+  box-shadow: 0 0 6px #38adff;
+  & > div {
+    margin: 10px;
+  }
+  .search-item {
+    display: flex;
+    position: relative;
+    .search-icon {
+      position: absolute;
+      right: 3px;
+      line-height: 32px;
+      width: 30px;
+      text-align: center; font-size: 16px;
+    }
+  }
+}

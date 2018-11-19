@@ -32,7 +32,7 @@
 .main_content {
   display: flex;
   width: 100%;
-  height: calc(100% - 80px);
+  min-height: calc(100% - 80px);
 }
 
 .main_page {
