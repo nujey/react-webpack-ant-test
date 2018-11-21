@@ -26,25 +26,10 @@ for(let i = 0; i < 20; i++) {
   })
 }
 const student = (props) => {
+  console.log(props)
   const studentId = parseInt(props.match.params.id, 10)
-
-  const filterApi = {
-    students: [
-      {id: 1, name: '1名'},
-      {id: 2, name: '2名'}
-    ],
-    all() {
-      return this.students
-    },
-    get(id) {
-      const item = e => e.id === id
-      return this.students.find(item)
-    }
-  }
   const rowSelection = {
     columnWidth: 20,
-    // columnTitle: '多选'
-    // selectedRowKeys: [3],
     onChange: (selectedRowKeys, selectedRows) => {
       console.log(selectedRowKeys, selectedRows)
     },
@@ -53,6 +38,7 @@ const student = (props) => {
       name: record.key + '不能选择'
     })
   }
+  
   return (
     <div>
       <Table columns={columns}
@@ -65,17 +51,25 @@ const student = (props) => {
   )
 }
 class Student extends React.Component {
-  // state = {
-  //   rowSelection: {}
-  // }
-  // componentWillMount() {
-  //   this.setState(rowSelection)
-  // }
+  state = {
+    selectedRowKeys: [],
+    loading: false
+  }
+  start = () => {
+    this.setState({ loading: true})
+    setTimeout(() => {
+      this.setState({
+        selectedRowKeys: [],
+        loading: false
+      })
+    }, 1000)
+  }
   render() {
+    const { loading, selectedRowKeys } = this.state;
     return (
       <div>
         <Switch>
-          <Route exact path="/user/:id" component={student}></Route>
+          <Route exact path="/user/:id" component={student} props={selectedRowKeys}></Route>
         </Switch>
       </div>
     )
