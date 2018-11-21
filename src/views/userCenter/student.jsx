@@ -18,6 +18,7 @@ const columns = [{
 const data = []
 for(let i = 0; i < 20; i++) {
   data.push({
+    key: i,
     name: `张小鹿${i}`,
     age: i,
     adress: `张小鹿的帅气爸爸有${i}个家`,
@@ -25,34 +26,50 @@ for(let i = 0; i < 20; i++) {
   })
 }
 const student = (props) => {
+  console.log(props)
   const studentId = parseInt(props.match.params.id, 10)
-
-  const filterApi = {
-    students: [
-      {id: 1, name: '1名'},
-      {id: 2, name: '2名'}
-    ],
-    all() {
-      return this.students
+  const rowSelection = {
+    columnWidth: 20,
+    onChange: (selectedRowKeys, selectedRows) => {
+      console.log(selectedRowKeys, selectedRows)
     },
-    get(id) {
-      const item = e => e.id === id
-      return this.students.find(item)
-    }
+    getCheckboxProps: record => ({
+      disabled: record.key === 5 || record.key === 8,
+      name: record.key + '不能选择'
+    })
   }
-
+  
   return (
     <div>
-      <Table columns={columns} dataSource={data}/>
+      <Table columns={columns}
+             dataSource={data}
+             rowSelection={rowSelection}
+             bordered 
+             title={() => '表头'}
+             footer={() => '表尾巴'}/>
     </div>
   )
 }
 class Student extends React.Component {
+  state = {
+    selectedRowKeys: [],
+    loading: false
+  }
+  start = () => {
+    this.setState({ loading: true})
+    setTimeout(() => {
+      this.setState({
+        selectedRowKeys: [],
+        loading: false
+      })
+    }, 1000)
+  }
   render() {
+    const { loading, selectedRowKeys } = this.state;
     return (
       <div>
         <Switch>
-          <Route exact path="/user/:id" component={student}></Route>
+          <Route exact path="/user/:id" component={student} props={selectedRowKeys}></Route>
         </Switch>
       </div>
     )
