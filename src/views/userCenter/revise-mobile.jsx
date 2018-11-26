@@ -1,5 +1,5 @@
 import React from 'react'
-import { Avatar } from 'antd'
+import { Badge, Avatar } from 'antd'
 
 const colorList = ['#f56a00', '#7265e6', '#ffbf00', '#fd9f00', '#dfbf00', '#00a2ae'];
 
@@ -19,11 +19,13 @@ class ReviseCenter extends React.Component {
   render() {
     return (
       <div className="center">
-        <Avatar style={{backgroundColor: this.state.color, verticalAlign: 'middle'}}
-                size="large" shape="square"
-                onClick={this.changeAvatar}>
-          张小鹿
-        </Avatar>
+        <Badge count={5}>
+          <Avatar style={{backgroundColor: this.state.color, verticalAlign: 'middle'}}
+                  size="large" shape="square"
+                  onClick={this.changeAvatar}>
+            张小鹿
+          </Avatar>
+        </Badge>
       </div>
     )
   }
