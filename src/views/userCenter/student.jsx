@@ -25,13 +25,12 @@ for(let i = 0; i < 20; i++) {
     company: '张小鹿的公司'
   })
 }
-const student = (props) => {
+const StudentList = (props) => {
   console.log(props)
-  const studentId = parseInt(props.match.params.id, 10)
   const rowSelection = {
     columnWidth: 20,
     onChange: (selectedRowKeys, selectedRows) => {
-      console.log(selectedRowKeys, selectedRows)
+      // console.log(selectedRowKeys, selectedRows)
     },
     getCheckboxProps: record => ({
       disabled: record.key === 5 || record.key === 8,
@@ -69,7 +68,10 @@ class Student extends React.Component {
     return (
       <div>
         <Switch>
-          <Route exact path="/user/:id" component={student} props={selectedRowKeys}></Route>
+          {/* <Route exact path="/user/:id" component={student} id="student"></Route> */}
+          <Route exact path="/user/:id">
+            <StudentList id="student"/>
+          </Route>
         </Switch>
       </div>
     )
