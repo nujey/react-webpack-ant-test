@@ -26,7 +26,7 @@ for(let i = 0; i < 20; i++) {
   })
 }
 const StudentList = (props) => {
-  console.log(props)
+  // console.log(props)
   const rowSelection = {
     columnWidth: 20,
     onChange: (selectedRowKeys, selectedRows) => {
