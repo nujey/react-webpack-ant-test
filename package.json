@@ -2,6 +2,8 @@
   "name": "react-webpack-ant",
   "version": "0.1.0",
   "private": true,
+  "main": "main.js",
+  "homepage":".",
   "dependencies": {
     "antd": "^3.8.4",
     "autoprefixer": "7.1.6",
@@ -17,6 +19,7 @@
     "dotenv": "4.0.0",
     "dotenv-expand": "4.2.0",
     "echarts": "^4.1.0",
+    "electron": "^3.0.10",
     "eslint": "4.10.0",
     "eslint-config-react-app": "^2.1.0",
     "eslint-loader": "1.9.0",
@@ -52,6 +55,8 @@
     "whatwg-fetch": "2.0.3"
   },
   "scripts": {
+    "electron-start": "electron . --env dev",
+    "electron-build": "npm run build && electron . --env build",
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom"

@@ -8,13 +8,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-          </header>
-          <div className="main_content">
-            <Slider />
-            <div className="main_page"><RouteConfig /></div>
-          </div> 
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+        </header>
+        <div className="main_content">
+          <Slider />
+          <div className="main_page"><RouteConfig /></div>
+        </div> 
       </div>
     );
   }
