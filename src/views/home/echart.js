@@ -187,6 +187,12 @@ let options = {
       },
       selectedMode: 'single'
   },
+  xAxis: {
+    show: false
+  },
+  yAxis: {
+    show: false
+  },
   geo: {
     map: 'china',
     label: {
@@ -197,11 +203,11 @@ let options = {
     roam: true,
     itemStyle: {
       normal: {
-        areaColor: '#323c48',
-        borderColor: '#404a59'
+        areaColor: '#23edef',
+        borderColor: '#23edef'
       },
       emphasis: {
-        areaColor: '#2a333d'
+        areaColor: '#23edef'
       }
     }
   },
