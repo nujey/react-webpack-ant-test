@@ -17,13 +17,9 @@ exports.menus = [{
     path: '/user',
     code: 'user',
     children: [{
-        label: '学生账号',
+        label: '个人中心',
         path: '/user/:id',
         code: 'user-item1'
-    }, {
-        label: '账号首页',
-        path: '/home',
-        code: 'user-item2'
     }]
 }, {
     label: '商务案例',
