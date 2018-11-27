@@ -1,9 +1,11 @@
+$light-color: #23edef;
+
 .echarts_main {
   width: 100%;
   min-height: 100%;
   background: #001529;
   // color: #14c8d4;
-  color: #0fd9cf;
+  color: $light-color;
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
@@ -13,6 +15,11 @@
 }
 .first-bar {
   width: 300px; height: 200px;
+  color: #fff;
+  margin: 20px 0;
+}
+.second-bar {
+  width: 500px; height: 400px;
   color: #fff;
   margin: 20px 0;
 }
