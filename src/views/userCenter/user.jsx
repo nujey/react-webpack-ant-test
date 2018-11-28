@@ -7,7 +7,7 @@ import TopperScreen from '../components/topper-screen.jsx'
 
 const Revice = () => {
   return <div>
-    <ReviseCenter name="修改个人中心的props"/>
+    <ReviseCenter name="个人中心"/>
   </div>
 }
 class User extends React.Component{
@@ -29,8 +29,8 @@ class User extends React.Component{
   render() {
     return(
       <div>
-        <TopperScreen />
-        {+this.props.match.params.id === 0 ? <Student /> : <Revice />}
+        {+this.props.match.params.id === 1 ? <TopperScreen /> : ''}
+        {+this.props.match.params.id === 1 ? <Student /> : <Revice />}
       </div>
     )
   }
