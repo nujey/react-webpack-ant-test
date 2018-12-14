@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
-import { BrowserRouter } from 'react-router-dom'
+import { Router } from 'react-router-dom'
+import history from './untils/history'
 
 import './assets/css/index.css';
 import App from './App';
@@ -10,9 +11,9 @@ import registerServiceWorker from './registerServiceWorker';
 const render = Component => {
   ReactDOM.render(
     // <Provider>
-    <BrowserRouter>
+    <Router history={history}>
       <Component />
-    </BrowserRouter>
+    </Router>
     // </Provider>
     , document.getElementById('root'))
 }
