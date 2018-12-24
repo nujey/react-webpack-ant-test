@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './assets/images/logo.svg';
+// import logo from './assets/images/logo.svg';
 import './assets/css/App.css';
 import RouteConfig from './router/index';
 import Slider from "./components/slider/slider";

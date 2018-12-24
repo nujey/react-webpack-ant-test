@@ -1,17 +1,31 @@
 import React from 'react'
 import { Badge, Avatar, Collapse, Calendar } from 'antd'
 import { personList } from './mock.js'
+import { withRouter } from 'react-router-dom'
+import { PropTypes } from 'prop-types'
+import history from '../../untils/history'
 
 const colorList = ['#f56a00', '#7265e6', '#ffbf00', '#fd9f00', '#dfbf00', '#00a2ae'];
 const Panel = Collapse.Panel;
 
 class ReviseCenter extends React.Component {
-  constructor(props) {
-    super(props)
+  static contextType = {
+    router: PropTypes.object
+  }
+  constructor(props, context) {
+    super(props, context)
     this.state = {
       color: colorList[0]
     }
+    this.handleHistory = this.handleHistory.bind(this)
   }
+  handleHistory () {
+    // this.props.history.push("/home")
+    console.log(this.context)
+    // this.context.router.history.push("/home")
+    history.push('/home')
+  }
+
   changeAvatar = () => {
     const index = colorList.indexOf(this.state.color)
     this.setState({
@@ -41,6 +55,10 @@ class ReviseCenter extends React.Component {
             <Calendar fullscreen={false}/>
           </div>
         </div>
+        <div>
+          路由测试
+          <p onClick={this.handleHistory}>首页</p>
+        </div>
         <Collapse accordion style={{marginTop: 20 + 'px'}}>
           {this.introduce(personList)}
         </Collapse>
@@ -48,4 +66,6 @@ class ReviseCenter extends React.Component {
     )
   }
 }
+
+// export default withRouter(ReviseCenter)
 export default ReviseCenter
