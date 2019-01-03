@@ -3,7 +3,7 @@
  */
 
 // 工具函数 用于组织多个reducer， 并返回reducer集合
-import { combineReducers } from 'react-redux'
+import { combineReducers } from 'redux'
 
 // 引入默认值
 import defaultState from './state'
@@ -20,7 +20,7 @@ function pageTitle (state = defaultState.pageTitle, action) {
 }
 
 function infoList (state = defaultState.infoList, action) {
-  if (action.type) {
+  if (action.type === 'SET_INFO_LIST') {
     return action.data
   } else {
     return state

@@ -9,7 +9,7 @@ import { applyMiddleware, createStore } from "redux";
 // applyTransform
 // createStore：用于创建store事例
 
-import thunk from 'react-redux'
+import thunk from 'redux-thunk'
 
 import reducers from './reducers'
 

@@ -201,7 +201,6 @@ class Home extends React.Component{
     })
     // 
     let fourthPie = echarts.init(document.getElementById('fourth-bar'));
-    console.log(fourthPie)
     fourthPie.setOption({
       title: {
         text: '访问人群',
