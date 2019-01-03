@@ -20,8 +20,7 @@ function pageTitle (state = defaultState.pageTitle, action) {
 }
 
 function infoList (state = defaultState.infoList, action) {
-  console.log(state)
-  if (action.type) {
+  if (action.type === 'SET_INFO_LIST') {
     return action.data
   } else {
     return state

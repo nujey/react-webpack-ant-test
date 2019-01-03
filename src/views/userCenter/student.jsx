@@ -1,6 +1,8 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import { Table } from 'antd'
+import { connect } from 'react-redux'
+import { setPageTitle, setInfoList } from '../../store/actions'
 
 const columns = [{
   title: '姓名',
@@ -50,6 +52,9 @@ const StudentList = (props) => {
   )
 }
 class Student extends React.Component {
+  constructor(props) {
+    super(props)
+  }
   state = {
     selectedRowKeys: [],
     loading: false
@@ -63,10 +68,18 @@ class Student extends React.Component {
       })
     }, 1000)
   }
+  componentDidMount = () => {
+    // console.log(this.props)
+    let { setPageTitle, setInfoList } = this.props
+    setPageTitle('新的页面标题')
+    console.log(this.props)
+  }
   render() {
     const { loading, selectedRowKeys } = this.state;
+    let { pageTitle } = this.props
     return (
       <div>
+        <div>{ pageTitle }</div>
         <Switch>
           {/* <Route exact path="/user/:id" component={student} id="student"></Route> */}
           <Route exact path="/user/:id">
@@ -78,4 +91,21 @@ class Student extends React.Component {
   }
 }
 
-export default Student
+// mapStateToProps 将state映射到组件的props中
+const mapStateToProps = (state) => {
+  return {
+    pageTitle: state.pageTitle,
+    infoList: state.infoList
+  }
+}
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    setPageTitle (data) {
+      dispatch(setPageTitle(data))
+    },
+    setInfoList (data) {
+      dispatch(setInfoList(data))
+    }
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Student)

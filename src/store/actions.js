@@ -19,7 +19,7 @@ export function setInfoList (data) {
     }).then(res => {
       return res.json()
     }).then(data => {
-      let { code, data } = data
+      let { code } = data
       if (code === 200) {
         dispatch({ type: 'SET_INFO_LIST', data: data })
       }
