@@ -1,17 +1,21 @@
 import React, { Component } from 'react'
 import { Row, Col, Affix, Button } from 'antd'
 import './test.scss'
+import Formdemo from './form'
 
 import {A} from './export'
 
 class TestUi extends Component {
+  constructor(props) {
+    super(props)
+  }
   state = {
     top: 100
   }
   componentDidMount() {
     console.log(A)
   }
-  handleClick() {
+  handleClick = () => {
     this.setState({
       top: this.state.top + 10
     })
@@ -72,7 +76,8 @@ class TestUi extends Component {
         <Affix offsetTop={this.state.top}>
           <Button type="primary" onClick={this.handleClick}>test affix</Button>
         </Affix>
-        <div style={{height: 1200 +'px'}}></div>
+        {/* <div style={{height: 1200 +'px'}}></div> */}
+        <Formdemo />
       </div>
     )
   }
