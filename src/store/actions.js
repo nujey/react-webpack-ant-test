@@ -2,6 +2,7 @@
  * @file
  * nujey
  **/
+import { ADD_TODO_DEMO } from './types'
 
 export function setPageTitle (data) {
   return (dispatch, getState) => {
@@ -26,3 +27,19 @@ export function setInfoList (data) {
     })
   }
 }
+
+export function addTodoDemo(data) {
+  return {
+    type: ADD_TODO_DEMO,
+    data
+  }
+}
+// 在传统的flux中，调用action的时候会触发一个dispatch
+// 不这么用现在
+// export function addTodoDemoFlux(data) {
+//   dispatch({
+//     type: ADD_TODO_DEMO,
+//     data
+//   })
+// }
+
