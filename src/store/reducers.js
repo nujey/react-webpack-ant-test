@@ -24,6 +24,8 @@ import { combineReducers } from 'redux'
  * 现在只需要谨记 reducer 一定要保持纯净
  * 只要传入参数相同，返回计算得到的下一个 state 就一定相同。没有特殊情况、没有副作用，没有 API 请求、没有变量修改，单纯执行计算。
  */
+
+ // Redux 应用只有一个单一的 store。当需要拆分数据处理逻辑时，你应该使用 reducer 组合 而不是创建多个 store。
 // 引入默认值
 import defaultState from './state'
 import { VisibilityFilters } from './actions'
