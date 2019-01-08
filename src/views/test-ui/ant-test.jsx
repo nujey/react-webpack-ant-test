@@ -2,8 +2,32 @@ import React, { Component } from 'react'
 import { Row, Col, Affix, Button } from 'antd'
 import './test.scss'
 import Formdemo from './form'
+import { connect } from 'react-redux'
+import { removeTodo, setVisibilityFilter } from '../../store/actions'
 
-import {A} from './export'
+const Todo = ({ onClick, completed, text }) => (
+  <li onClick = { onClick } style = { {textDecoration : completed ? 'line-through' : 'none'}}>{text}</li>
+)
+
+const TodoList = ({ todos, onTodoClick }) => (
+  <ul>
+    { todos.map((todo, index) => (
+      <Todo key={index} {...todo} onClick = {() => onTodoClick(index)} />
+    ))}
+  </ul>
+)
+// const Link = ({ active, children, onCLick }) => {
+//   if (active) {
+//     return <span>{children}</span>
+//   }
+//   return <a href=""
+//             onClick={e => {
+//                       e.preventDefault()
+//                       onClick()
+//                     }}>
+//           {children}
+//           </a>
+// }
 
 class TestUi extends Component {
   constructor(props) {
@@ -11,9 +35,6 @@ class TestUi extends Component {
   }
   state = {
     top: 100
-  }
-  componentDidMount() {
-    console.log(A)
   }
   handleClick = () => {
     this.setState({
@@ -78,9 +99,44 @@ class TestUi extends Component {
         </Affix>
         {/* <div style={{height: 1200 +'px'}}></div> */}
         <Formdemo />
+
+        <div className="footer">
+          <TodoList />
+        </div>
       </div>
     )
   }
 }
 
-export default TestUi
+const getShowTodos = (todos, filter) => {
+  switch(filter) {
+    case 'SHOW_ALL':
+      return todos
+    case 'SHOW_COMPLETED':
+      return todos.filter(t => t.completed)
+    case 'SHOW_ACtIVE':
+      return todos.filter(t => !t.completed)
+  }
+}
+
+const mapStateToProps = (state, ownProps) => {
+  return {
+    todos: getShowTodos(state.todos, state.visibilityFilter),
+    active: ownProps.filter === state.visibilityFilter
+  }
+}
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    onTodoClick: id => {
+      dispatch(removeTodo(id))
+    },
+    onClick: () => {
+      dispatch(setVisibilityFilter(ownProps.filter))
+    }
+  }
+}
+
+connect(mapStateToProps, mapDispatchToProps)(TodoList)
+
+export default connect(mapStateToProps, mapDispatchToProps)(TestUi)
