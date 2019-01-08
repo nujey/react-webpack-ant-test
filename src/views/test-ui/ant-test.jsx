@@ -3,6 +3,7 @@ import { Row, Col, Affix, Button } from 'antd'
 import './test.scss'
 import Formdemo from './form'
 import { connect } from 'react-redux'
+import { removeTodo, setVisibilityFilter } from '../../store/actions'
 
 const Todo = ({ onClick, completed, text }) => (
   <li onClick = { onClick } style = { {textDecoration : completed ? 'line-through' : 'none'}}>{text}</li>
@@ -11,22 +12,22 @@ const Todo = ({ onClick, completed, text }) => (
 const TodoList = ({ todos, onTodoClick }) => (
   <ul>
     { todos.map((todo, index) => (
-      <Todo key={index} {...todo} onClick = {() => onTodoClick(index)}/>
+      <Todo key={index} {...todo} onClick = {() => onTodoClick(index)} />
     ))}
   </ul>
 )
-const Link = ({ active, children, onCLick }) => {
-  if (active) {
-    return <span>{children}</span>
-  }
-  return <a href=""
-            onClick={e => {
-                      e.preventDefault()
-                      onClick()
-                    }}>
-          {children}
-          </a>
-}
+// const Link = ({ active, children, onCLick }) => {
+//   if (active) {
+//     return <span>{children}</span>
+//   }
+//   return <a href=""
+//             onClick={e => {
+//                       e.preventDefault()
+//                       onClick()
+//                     }}>
+//           {children}
+//           </a>
+// }
 
 class TestUi extends Component {
   constructor(props) {
@@ -100,7 +101,7 @@ class TestUi extends Component {
         <Formdemo />
 
         <div className="footer">
-          <TodoList onCLick={}/>
+          <TodoList />
         </div>
       </div>
     )
@@ -124,7 +125,8 @@ const mapStateToProps = (state, ownProps) => {
     active: ownProps.filter === state.visibilityFilter
   }
 }
-const mapDispatchToProps = dispatch => {
+
+const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onTodoClick: id => {
       dispatch(removeTodo(id))
@@ -134,5 +136,7 @@ const mapDispatchToProps = dispatch => {
     }
   }
 }
+
+connect(mapStateToProps, mapDispatchToProps)(TodoList)
 
 export default connect(mapStateToProps, mapDispatchToProps)(TestUi)
