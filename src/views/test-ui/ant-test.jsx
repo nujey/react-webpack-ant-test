@@ -5,30 +5,6 @@ import Formdemo from './form'
 import { connect } from 'react-redux'
 import { removeTodo, setVisibilityFilter } from '../../store/actions'
 
-const Todo = ({ onClick, completed, text }) => (
-  <li onClick = { onClick } style = { {textDecoration : completed ? 'line-through' : 'none'}}>{text}</li>
-)
-
-const TodoList = ({ todos, onTodoClick }) => (
-  <ul>
-    { todos.map((todo, index) => (
-      <Todo key={index} {...todo} onClick = {() => onTodoClick(index)} />
-    ))}
-  </ul>
-)
-// const Link = ({ active, children, onCLick }) => {
-//   if (active) {
-//     return <span>{children}</span>
-//   }
-//   return <a href=""
-//             onClick={e => {
-//                       e.preventDefault()
-//                       onClick()
-//                     }}>
-//           {children}
-//           </a>
-// }
-
 class TestUi extends Component {
   constructor(props) {
     super(props)
@@ -40,6 +16,13 @@ class TestUi extends Component {
     this.setState({
       top: this.state.top + 10
     })
+  }
+  handleTodoClick = () => {
+    // console.log(onTodoClick)
+    console.log(this.props)
+    // onTodoClick(1)
+    let { onTodoClick } = this.props
+    onTodoClick(1)
   }
   render() {
     return(
@@ -99,10 +82,7 @@ class TestUi extends Component {
         </Affix>
         {/* <div style={{height: 1200 +'px'}}></div> */}
         <Formdemo />
-
-        <div className="footer">
-          <TodoList />
-        </div>
+        <button onClick={this.handleTodoClick}>点我一下试试你！</button>
       </div>
     )
   }
@@ -128,15 +108,13 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    onTodoClick: id => {
+    onTodoClick(id) {
       dispatch(removeTodo(id))
     },
-    onClick: () => {
+    onClick() {
       dispatch(setVisibilityFilter(ownProps.filter))
     }
   }
 }
-
-connect(mapStateToProps, mapDispatchToProps)(TodoList)
 
 export default connect(mapStateToProps, mapDispatchToProps)(TestUi)

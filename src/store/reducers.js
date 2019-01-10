@@ -33,6 +33,7 @@ import { VisibilityFilters } from './actions'
 const { SHOW_ALL } = VisibilityFilters
 // 一个reducer 实际上就是一个函数
 function pageTitle (state = defaultState.pageTitle, action) {
+  console.log(action.type)
   // 不同的action 有不同的处理逻辑
   switch (action.type) {
     case 'SET_PAGE_TITLE':
@@ -43,7 +44,6 @@ function pageTitle (state = defaultState.pageTitle, action) {
 }
 
 function infoList (state = defaultState.infoList, action) {
-  console.log(action.type)
   if (action.type === 'SET_INFO_LIST') {
     return action.data
   } else {

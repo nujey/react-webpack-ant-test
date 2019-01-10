@@ -20,7 +20,9 @@ export function addTodoDemo(data) {
 // }
 
 export function removeTodo (data) {
-  return { type: REMOVE_TODO, data }
+  console.log(data)
+  // return (dispatch) => { dispatch({ type: REMOVE_TODO, data: data })}
+  return { type: 'REMOVE_TODO', data }
 }
 
 export function setPageTitle (data) {
