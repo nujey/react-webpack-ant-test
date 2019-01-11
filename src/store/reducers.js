@@ -78,5 +78,9 @@ function visibilityFilter(state = SHOW_ALL, action) {
   }
 }
 
+function removeTodo(state = defaultState.todos, action ) {
+  console.log(action)
+  return state
+}
 // 导出所有的reducer
-export default combineReducers({ pageTitle, infoList, todoList, visibilityFilter })
+export default combineReducers({ pageTitle, infoList, todoList, visibilityFilter, removeTodo })

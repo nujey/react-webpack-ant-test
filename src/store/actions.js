@@ -4,12 +4,6 @@
  **/
 import { ADD_TODO_DEMO, REMOVE_TODO } from './types'
 
-export function addTodoDemo(data) {
-  return {
-    type: ADD_TODO_DEMO,
-    data
-  }
-}
 // 在传统的flux中，调用action的时候会触发一个dispatch
 // 不这么用现在
 // export function addTodoDemoFlux(data) {
@@ -19,11 +13,6 @@ export function addTodoDemo(data) {
 //   })
 // }
 
-export function removeTodo (data) {
-  console.log(data)
-  // return (dispatch) => { dispatch({ type: REMOVE_TODO, data: data })}
-  return { type: 'REMOVE_TODO', data }
-}
 
 export function setPageTitle (data) {
   return (dispatch, getState) => {
@@ -55,6 +44,30 @@ export const VisibilityFilters = {
   SHOW_ACTIVE: 'SHOW_ACTIVE'
 }
 
+let nextTodoId = 0
+
+export const addTodo = text => {
+  return {
+    type: 'ADD_TODO',
+    id: nextTodoId++,
+    text
+  }
+}
+
+export const removeTodo = id => {
+  return {
+    type: 'REMOVE_TODO',
+    id
+  }
+}
+
 export function setVisibilityFilter(filter) {
   return { type: 'SET_VISIBILITY_FILTER', filter }
+}
+
+export const toggleTodo = id => {
+  return {
+    type: 'TOGGLE_TODO',
+    id
+  }
 }
