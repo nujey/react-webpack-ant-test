@@ -44,6 +44,9 @@ export const VisibilityFilters = {
   SHOW_ACTIVE: 'SHOW_ACTIVE'
 }
 
+
+
+// 官方demo
 let nextTodoId = 0
 
 export const addTodo = text => {
