@@ -33,6 +33,7 @@ import { VisibilityFilters } from './actions'
 const { SHOW_ALL } = VisibilityFilters
 // 一个reducer 实际上就是一个函数
 function pageTitle (state = defaultState.pageTitle, action) {
+  console.log(action.type)
   // 不同的action 有不同的处理逻辑
   switch (action.type) {
     case 'SET_PAGE_TITLE':
@@ -43,7 +44,6 @@ function pageTitle (state = defaultState.pageTitle, action) {
 }
 
 function infoList (state = defaultState.infoList, action) {
-  console.log(action.type)
   if (action.type === 'SET_INFO_LIST') {
     return action.data
   } else {
@@ -69,7 +69,30 @@ function todoList (state = defaultState.todos, action) {
   }
 }
 
-function visibilityFilter(state = SHOW_ALL, action) {
+function removeTodo(state = defaultState.todos, action ) {
+  console.log(action)
+  return state
+}
+
+const todos = (state = [], action) {
+  switch(action.type) {
+    case 'ADD_TODO':
+      return [
+        ...state,
+        {
+          id: action.id,
+          text: action.text,
+          completed: false
+        }
+      ]
+    case 'TOGGLE_TODO':
+      return state.map(todo => (todo.id === action.id) ? { ...todo, completed: !todo.completed }: todo)
+    default:
+      return state
+  }
+}
+
+const visibilityFilter = (state = SHOW_ALL, action) {
   switch(action.type) {
     case 'SET_VISIBILITY_FILTER':
       return action.filter
@@ -79,4 +102,4 @@ function visibilityFilter(state = SHOW_ALL, action) {
 }
 
 // 导出所有的reducer
-export default combineReducers({ pageTitle, infoList, todoList, visibilityFilter })
+export default combineReducers({ pageTitle, infoList, todoList, visibilityFilter, removeTodo })

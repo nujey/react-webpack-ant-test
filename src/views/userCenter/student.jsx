@@ -70,9 +70,8 @@ class Student extends React.Component {
   }
   componentDidMount = () => {
     // console.log(this.props)
-    let { setPageTitle, setInfoList } = this.props
+    let { setPageTitle } = this.props
     setPageTitle('新的页面标题')
-    console.log(this.props)
   }
   render() {
     const { loading, selectedRowKeys } = this.state;
