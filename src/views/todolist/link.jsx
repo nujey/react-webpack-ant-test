@@ -10,6 +10,9 @@ const Link = ({ active, children, onClick }) => {
        onClick={e => {
          e.preventDefault()
          onClick()
+       }}
+       style={{
+         marginLeft: '4px'
        }}>
       {children}
     </a>
