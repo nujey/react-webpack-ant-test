@@ -83,6 +83,15 @@ class TestUi extends Component {
         {/* <div style={{height: 1200 +'px'}}></div> */}
         <Formdemo />
         <button onClick={this.handleTodoClick}>点我一下试试你！</button>
+        <hr/>
+        我是华丽分割线
+        <hr/>
+        <div className="grid-container">
+          <div className="grid-item">1</div>
+          <div className="grid-item">2</div>
+          <div className="grid-item">3</div>
+          <div className="grid-item">4</div>
+        </div>
       </div>
     )
   }
