@@ -10,3 +10,9 @@ export { name, age }
 export function myModule(someArg) {
   return someArg
 }
+
+var foo = ['a', 'b', 'c']
+
+var [a, b, c] = foo
+
+export { a, b, c}
